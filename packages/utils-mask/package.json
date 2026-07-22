@@ -1,0 +1,60 @@
+{
+  "name": "@mrbontor/utils-mask",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Mask sensitive data — emails, phone numbers, and custom fields — with a simple, composable API",
+  "keywords": [
+    "mask",
+    "masking",
+    "data-masking",
+    "pii",
+    "privacy",
+    "security",
+    "email-mask",
+    "phone-mask",
+    "redact",
+    "sanitize",
+    "typescript",
+    "utils",
+    "mrbontor"
+  ],
+  "license": "MIT",
+  "author": "mrbontor",
+  "homepage": "https://github.com/mrbontor/mrbontor-utils/tree/main/packages/utils-mask#readme",
+  "bugs": {
+    "url": "https://github.com/mrbontor/mrbontor-utils/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrbontor/mrbontor-utils.git",
+    "directory": "packages/utils-mask"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "build": "tsup --config ../../tooling/tsup/tsup.base.ts",
+    "test": "vitest run --config ../../tooling/vitest/vitest.config.ts",
+    "test:watch": "vitest --config ../../tooling/vitest/vitest.config.ts",
+    "lint": "eslint src --config ../../tooling/eslint/eslint.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  }
+}
