@@ -1,6 +1,6 @@
 {
   "name": "@mrbontor/utils-mask",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "sideEffects": false,
   "description": "Mask sensitive data — emails, phone numbers, and custom fields — with a simple, composable API",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrbontor/mrbontor-utils.git",
+    "url": "git+https://github.com/mrbontor/mrbontor-utils.git",
     "directory": "packages/utils-mask"
   },
   "exports": {
@@ -45,7 +45,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
