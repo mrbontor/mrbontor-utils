@@ -1,34 +1,20 @@
 {
-  "name": "@mrbontor/utils-mask",
+  "name": "@mrbontor/utils-REPLACE",
   "version": "1.0.0",
   "type": "module",
   "sideEffects": false,
-  "description": "Mask sensitive data — emails, phone numbers, and custom fields — with a simple, composable API",
-  "keywords": [
-    "mask",
-    "masking",
-    "data-masking",
-    "pii",
-    "privacy",
-    "security",
-    "email-mask",
-    "phone-mask",
-    "redact",
-    "sanitize",
-    "typescript",
-    "utils",
-    "mrbontor"
-  ],
+  "description": "",
+  "keywords": ["utils", "typescript", "mrbontor"],
   "license": "MIT",
   "author": "mrbontor",
-  "homepage": "https://github.com/mrbontor/mrbontor-utils/tree/main/packages/utils-mask#readme",
+  "homepage": "https://github.com/mrbontor/mrbontor-utils/tree/main/packages/utils-REPLACE#readme",
   "bugs": {
     "url": "https://github.com/mrbontor/mrbontor-utils/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/mrbontor/mrbontor-utils.git",
-    "directory": "packages/utils-mask"
+    "directory": "packages/utils-REPLACE"
   },
   "exports": {
     ".": {
@@ -43,10 +29,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "files": ["dist", "README.md"],
   "publishConfig": {
     "access": "public"
   },
