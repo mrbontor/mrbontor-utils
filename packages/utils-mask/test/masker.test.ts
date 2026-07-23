@@ -68,4 +68,71 @@ describe("DataMasker", () => {
     ]);
     expect(result.code).toBe("MYSECRET");
   });
+
+  it("should apply globalOptions as default for all rules", () => {
+    const data = {
+      name: "johndoe",
+      address: "jl. sudirman no. 1",
+      token: "abc123xyz",
+    };
+    const result = DataMasker.mask(
+      data,
+      [
+        { match: "name", strategy: "slice" },
+        { match: "address", strategy: "slice" },
+        { match: "token", strategy: "slice" },
+      ],
+      { maskChar: "#", showStart: 2, showEnd: 2 },
+    );
+    expect(result.name).toBe("jo###oe");
+    expect(result.address).toBe("jl############## 1");
+    expect(result.token).toBe("ab#####yz");
+  });
+
+  it("should allow per-rule options to override globalOptions", () => {
+    const data = {
+      email: "johndoe@example.com",
+      phone: "+6281234567890",
+      token: "abc123xyz",
+    };
+    const result = DataMasker.mask(
+      data,
+      [
+        { match: "email", strategy: "email" },
+        { match: "phone", strategy: "phone" },
+        // token overrides global showStart/showEnd
+        {
+          match: "token",
+          strategy: "slice",
+          options: { showStart: 1, showEnd: 1 },
+        },
+      ],
+      { maskChar: "*", showStart: 3, showEnd: 3 },
+    );
+    // email uses globalOptions showStart:3, showEnd:3
+    expect(result.email).toContain("@example.com");
+    // phone uses globalOptions
+    expect(result.phone).toContain("*");
+    // token uses its own options, not global
+    expect(result.token).toBe("a*******z");
+  });
+
+  it("should apply globalOptions to array of objects", () => {
+    const data = [
+      { name: "alice", token: "tok_alice_123" },
+      { name: "bob", token: "tok_bob_456" },
+    ];
+    const result = DataMasker.mask(
+      data,
+      [
+        { match: "name", strategy: "slice" },
+        { match: "token", strategy: "slice" },
+      ],
+      { maskChar: "-", showStart: 2, showEnd: 2 },
+    );
+    expect(result[0].name).toBe("al-ce");
+    expect(result[0].token).toBe("to---------23");
+    expect(result[1].name).toBe("b--");
+    expect(result[1].token).toBe("to-------56");
+  });
 });

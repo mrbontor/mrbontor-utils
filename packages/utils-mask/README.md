@@ -294,11 +294,31 @@ Masks a credit/debit card number following PCI-DSS convention (show first 6, las
 
 Recursively masks fields in an object or array according to the provided rules.
 
-| Parameter       | Type            | Description                               |
-| --------------- | --------------- | ----------------------------------------- |
-| `data`          | `T`             | Any object or array                       |
-| `rules`         | `MaskRule[]`    | List of masking rules                     |
-| `globalOptions` | `GlobalOptions` | Optional default `maskChar` for all rules |
+| Parameter       | Type            | Description                                      |
+| --------------- | --------------- | ------------------------------------------------ |
+| `data`          | `T`             | Any object or array                              |
+| `rules`         | `MaskRule[]`    | List of masking rules                            |
+| `globalOptions` | `GlobalOptions` | Default options applied to all rules as fallback |
+
+`globalOptions` accepts all the same fields as `MaskOptions` — `maskChar`, `showStart`, `showEnd`, `preserveFormat`. Per-rule `options` always take priority over `globalOptions`.
+
+```typescript
+// globalOptions as default for all rules
+DataMasker.mask(
+  data,
+  [
+    { match: "name", strategy: "slice" },
+    { match: "address", strategy: "slice" },
+    // token overrides global showStart/showEnd
+    {
+      match: "token",
+      strategy: "slice",
+      options: { showStart: 1, showEnd: 1 },
+    },
+  ],
+  { maskChar: "#", showStart: 3, showEnd: 3 },
+);
+```
 
 ### `DataMasker.registerStrategy(name, fn)`
 
