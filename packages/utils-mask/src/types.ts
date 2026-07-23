@@ -21,6 +21,4 @@ export interface MaskRule {
   options?: MaskOptions;
 }
 
-export interface GlobalOptions {
-  maskChar?: string;
-}
+export type GlobalOptions = MaskOptions;

@@ -25,7 +25,7 @@ export class DataMasker {
   public static mask<T>(
     data: T,
     rules: MaskRule[] = [],
-    globalOptions: GlobalOptions = { maskChar: "*" },
+    globalOptions: GlobalOptions = {},
   ): T {
     if (!data || typeof data !== "object") return data;
 
@@ -54,7 +54,7 @@ export class DataMasker {
       if (matchedRule) {
         const strValue = String(value);
         const config = {
-          maskChar: globalOptions.maskChar,
+          ...globalOptions,
           ...matchedRule.options,
         };
         const { strategy } = matchedRule;
