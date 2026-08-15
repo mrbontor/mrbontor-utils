@@ -1,0 +1,67 @@
+{
+  "name": "@mrbontor/phone-utils",
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Framework-independent phone number utility — parse, normalize to E.164, validate, and format international phone numbers",
+  "keywords": [
+    "phone",
+    "phone-number",
+    "e164",
+    "normalize",
+    "validate",
+    "format",
+    "parse",
+    "libphonenumber",
+    "international",
+    "typescript",
+    "utils",
+    "mrbontor"
+  ],
+  "license": "MIT",
+  "author": "mrbontor",
+  "homepage": "https://github.com/mrbontor/mrbontor-utils/tree/main/packages/phone-utils#readme",
+  "bugs": {
+    "url": "https://github.com/mrbontor/mrbontor-utils/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrbontor/mrbontor-utils.git",
+    "directory": "packages/phone-utils"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "build": "tsup --config ../../tooling/tsup/tsup.base.ts",
+    "test": "vitest run --config ../../tooling/vitest/vitest.config.ts",
+    "test:watch": "vitest --config ../../tooling/vitest/vitest.config.ts",
+    "lint": "eslint src --config ../../tooling/eslint/eslint.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.11.20"
+  }
+}
