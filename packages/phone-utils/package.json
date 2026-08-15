@@ -1,6 +1,6 @@
 {
   "name": "@mrbontor/phone-utils",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
   "description": "Framework-independent phone number utility — parse, normalize to E.164, validate, and format international phone numbers",
