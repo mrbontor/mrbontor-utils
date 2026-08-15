@@ -6,9 +6,10 @@ All packages are published under the `@mrbontor` scope on npm and designed to be
 
 ## Packages
 
-| Package                                         | Version                                                                                                         | Description                                                       |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [`@mrbontor/utils-mask`](./packages/utils-mask) | [![npm](https://img.shields.io/npm/v/@mrbontor/utils-mask)](https://www.npmjs.com/package/@mrbontor/utils-mask) | Mask sensitive data like emails, phone numbers, and custom fields |
+| Package                                           | Version                                                                                                           | Description                                                                 |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [`@mrbontor/utils-mask`](./packages/utils-mask)   | [![npm](https://img.shields.io/npm/v/@mrbontor/utils-mask)](https://www.npmjs.com/package/@mrbontor/utils-mask)   | Mask sensitive data like emails, phone numbers, and custom fields           |
+| [`@mrbontor/phone-utils`](./packages/phone-utils) | [![npm](https://img.shields.io/npm/v/@mrbontor/phone-utils)](https://www.npmjs.com/package/@mrbontor/phone-utils) | Parse, normalize to E.164, validate, and format international phone numbers |
 
 ## Quick Start
 
@@ -17,19 +18,21 @@ Install the package you need:
 ```bash
 # npm
 npm install @mrbontor/utils-mask
+npm install @mrbontor/phone-utils
 
 # pnpm
 pnpm add @mrbontor/utils-mask
+pnpm add @mrbontor/phone-utils
 
 # yarn
 yarn add @mrbontor/utils-mask
+yarn add @mrbontor/phone-utils
 ```
 
 ## Features
 
 - **TypeScript-first** — full type definitions included
 - **Dual build** — ships ESM and CommonJS
-- **Zero dependencies** — no bloat
 - **Tree-shakeable** — only import what you use
 - **Tested** — every package has unit tests
 
@@ -38,7 +41,8 @@ yarn add @mrbontor/utils-mask
 ```
 mrbontor-utils/
 ├── packages/
-│   └── utils-mask/        # @mrbontor/utils-mask
+│   ├── utils-mask/        # @mrbontor/utils-mask
+│   └── phone-utils/       # @mrbontor/phone-utils
 ├── tooling/               # Shared configs (tsconfig, eslint, prettier, tsup, vitest)
 ├── .changeset/            # Versioning and changelog
 └── .github/workflows/     # CI pipeline
@@ -78,7 +82,7 @@ pnpm typecheck
 4. Run `pnpm test && pnpm lint` to verify
 5. Submit a pull request
 
-When adding a new package, create it under `packages/` following the existing structure of `utils-mask`. No repository restructuring needed.
+When adding a new package, create it under `packages/` following the existing structure. No repository restructuring needed.
 
 ## License
 
